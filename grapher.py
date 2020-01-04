@@ -4,14 +4,6 @@ from matplotlib import style
 from pandas.plotting import register_matplotlib_converters
 from data_to_csv import data_grabber
 
-register_matplotlib_converters()
-
-style.use('ggplot')
-
-# Optimizes the Python console's output of data when we are printing.
-pd.set_option('display.max_columns', None)
-pd.set_option('display.width', None)
-
 
 def read_csv(file):
     # Read data from the csv file, and set date as the index.
@@ -30,6 +22,7 @@ def graph_data(df, name):
     ax2 = plt.subplot2grid((6, 1), (4, 0), rowspan=2, colspan=1, sharex=ax1)
 
     ax1.plot(df.index, df['Adj Close'], label='Adjusted Close')
+    ax1.plot(df.index, df['20MA'], label='20MA')
     ax1.plot(df.index, df['100MA'], label='100MA')
     ax1.legend()
 
@@ -44,6 +37,14 @@ def graph_data(df, name):
 
 
 def main():
+    register_matplotlib_converters()
+
+    style.use('ggplot')
+
+    # Optimizes the Python console's output of data when we are printing.
+    pd.set_option('display.max_columns', None)
+    pd.set_option('display.width', None)
+
     print(
         "Welcome to a program that lets you check stock data! Note that a data file will be created locally during "
         "the process")
