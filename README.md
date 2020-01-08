@@ -6,7 +6,7 @@ The end goal of this project is to develop a fully-functional algorithmic tradin
 
 ## Stock Grapher
 This graphing program takes in a company and a specified time interval as inputs, and will output a graph of the 
-company's stock prices throughout that time interval, complete with line graphs of the 20-day and 100-day moving 
+company's stock prices throughout that time interval, complete with line graphs of the 50-day and 200-day moving 
 averages as well as the trading volume. 
 
 
