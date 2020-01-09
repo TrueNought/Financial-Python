@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from matplotlib import style
 from pandas.plotting import register_matplotlib_converters
 from data_to_csv import data_grabber
+import os
 
 
 def read_csv(file):
@@ -10,8 +11,8 @@ def read_csv(file):
     df = pd.read_csv(file, parse_dates=True, index_col=0)
 
     # Creates new columns that shows the 20-day and 100-day moving average of the stock.
-    df['20MA'] = df['Adj Close'].rolling(window=20, min_periods=0).mean()
-    df['100MA'] = df['Adj Close'].rolling(window=100, min_periods=0).mean()
+    df['50MA'] = df['Adj Close'].rolling(window=50, min_periods=0).mean()
+    df['200MA'] = df['Adj Close'].rolling(window=200, min_periods=0).mean()
 
     return df
 
@@ -22,8 +23,8 @@ def graph_data(df, name):
     ax2 = plt.subplot2grid((6, 1), (4, 0), rowspan=2, colspan=1, sharex=ax1)
 
     ax1.plot(df.index, df['Adj Close'], label='Adjusted Close')
-    ax1.plot(df.index, df['20MA'], label='20MA')
-    ax1.plot(df.index, df['100MA'], label='100MA')
+    ax1.plot(df.index, df['50MA'], label='50MA')
+    ax1.plot(df.index, df['200MA'], label='200MA')
     ax1.legend()
 
     ax2.bar(df.index, df['Volume'])
@@ -54,6 +55,7 @@ def main():
 
     csv_file = data_grabber(start_date, end_date, ticker)
     data_frame = read_csv(csv_file)
+    os.remove(csv_file)
 
     print(data_frame.describe())
 
