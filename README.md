@@ -11,4 +11,4 @@ averages as well as the trading volume.
 
 
 The stock data is obtained through Yahoo's API with the help of the pandas module, and is stored in a csv file that
-will be created in the same local folder when the program runs. 
+will be created in the same local folder when the program runs (but will be deleted when the data is read).
