@@ -2,7 +2,6 @@
 
 ## Work-In-Progress!
 Using what I have learned about coding and Python, I am currently attempting to graph and analyze stock data. 
-The end goal of this project is to develop a fully-functional algorithmic trading program.
 
 ## Stock Grapher
 This graphing program takes in a company and a specified time interval as inputs, and will output a graph of the 
