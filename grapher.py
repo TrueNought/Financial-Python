@@ -30,7 +30,7 @@ def graph_data(df, name):
     ax2.bar(df.index, df['Volume'])
     ax2.set_title('Volume')
 
-    plt.suptitle(name + '\'s Stocks')
+    plt.suptitle(f'Graph of {name} Stocks')
     plt.tight_layout()
     plt.subplots_adjust(top=0.95)
 
